@@ -751,6 +751,12 @@ export const FinalQuiz: React.FC<FinalQuizProps> = ({ username, userClass, title
     
     setSubmitStatus(result);
     setIsSubmitting(false);
+
+    if (result.success) {
+      setTimeout(() => {
+        handleReturnHome();
+      }, 1500);
+    }
   };
 
   const handleReturnHome = () => {
@@ -879,20 +885,18 @@ export const FinalQuiz: React.FC<FinalQuizProps> = ({ username, userClass, title
                   <span>Sedang Mengirim...</span>
                 </div>
               ) : submitStatus ? (
-                <div className={`w-full py-5 rounded-2xl font-black flex flex-col items-center justify-center gap-4 transition-all ${submitStatus.success ? 'bg-emerald-50 text-emerald-600' : 'bg-rose-50 text-rose-600'}`}>
-                  <div className="flex items-center gap-2 text-xl">
-                    <CheckCircle2 size={24} />
-                    <span>{submitStatus.message}</span>
-                  </div>
-                  {submitStatus.success && (
-                    <button 
-                      onClick={handleReturnHome}
-                      className="w-full max-w-xs py-3 bg-emerald-600 text-white rounded-xl font-black shadow-md hover:bg-emerald-700 transition-all flex items-center justify-center gap-2"
-                    >
-                      <ArrowRight size={18} />
-                      <span>Kembali ke Beranda</span>
-                    </button>
-                  )}
+                <div className={`w-full py-6 rounded-2xl font-black flex flex-col items-center justify-center gap-4 transition-all ${submitStatus.success ? 'bg-emerald-50 text-emerald-600' : 'bg-rose-50 text-rose-600'}`}>
+                  <motion.div 
+                    initial={{ scale: 0.8 }}
+                    animate={{ scale: 1 }}
+                    className="flex flex-col items-center gap-2"
+                  >
+                    <CheckCircle2 size={48} className={submitStatus.success ? 'text-emerald-500' : 'text-rose-500'} />
+                    <span className="text-xl">{submitStatus.message}</span>
+                    {submitStatus.success && (
+                      <p className="text-sm font-bold opacity-60">Sedang kembali ke beranda...</p>
+                    )}
+                  </motion.div>
                   {!submitStatus.success && (
                     <button 
                       onClick={() => onComplete(score)}

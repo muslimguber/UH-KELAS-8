@@ -372,8 +372,8 @@ const App = () => {
               )}
             </motion.button>
             <div>
-              <h2 className="font-black text-[11px] tracking-tight leading-none uppercase">Yuk Berkebun</h2>
-              <p className="text-[8px] opacity-60 font-bold uppercase tracking-widest mt-0.5">Modul Digital</p>
+              <h2 className="font-black text-[11px] tracking-tight leading-none uppercase">UJIAN ONLINE</h2>
+              <p className="text-[8px] opacity-60 font-bold uppercase tracking-widest mt-0.5 whitespace-nowrap">Ilmu Pengetahuan Alam</p>
             </div>
             <button 
               onClick={() => setSidebarOpen(false)}
@@ -384,28 +384,22 @@ const App = () => {
             </button>
           </div>
 
-          {/* Header Quick Menu (Icons Only) */}
-          <div className="flex gap-1 mb-2">
+          {/* Header Quick Menu (Home Button & User Info) */}
+          <div className="flex items-center gap-2 mb-3">
             <button 
               onClick={() => {
                 setCurrentView('home');
                 setSidebarOpen(false);
               }}
-              className={`flex-1 flex items-center justify-center p-1.5 rounded-lg transition-all ${currentView === 'home' ? 'bg-white/20 shadow-lg' : 'hover:bg-white/5 opacity-60 hover:opacity-100'}`}
+              className={`flex-none flex items-center justify-center p-2 rounded-lg transition-all ${currentView === 'home' ? 'bg-white/20 shadow-lg' : 'hover:bg-white/5 opacity-60 hover:opacity-100'}`}
               title="Halaman Utama"
             >
               <HomeIcon size={16} />
             </button>
-            <button 
-              onClick={() => {
-                setCurrentView('resume');
-                setSidebarOpen(false);
-              }}
-              className={`flex-1 flex items-center justify-center p-1.5 rounded-lg transition-all ${currentView === 'resume' ? 'bg-white/20 shadow-lg' : 'hover:bg-white/5 opacity-60 hover:opacity-100'}`}
-              title="Hasil Belajar"
-            >
-              <BarChart3 size={16} />
-            </button>
+            <div className="flex-1 min-w-0 flex flex-col justify-center">
+              <p className="text-[10px] font-black uppercase truncate">{username}</p>
+              <p className="text-[8px] font-bold opacity-60 uppercase truncate">Kelas: {userClass}</p>
+            </div>
             {searchQuery === '1111' && (
               <a 
                 href="https://accounts.google.com/SignOutOptions?continue=https://aistudio.google.com/apps/1d64e8db-7e15-4e52-8a3d-96a86eb7f1b2?showAssistant=true"
@@ -520,41 +514,43 @@ const App = () => {
           )}
         </div>
 
-        {/* Sidebar Footer (Compact) */}
+        {/* Sidebar Footer */}
         <div className="border-t border-white/10">
-          <div className="px-1.5 pb-12 pt-2 flex items-center justify-around gap-0.5">
-            <button 
-              onClick={() => {
-                setShowThemeEditor(true);
-                setSidebarOpen(false);
-              }}
-              className="p-1.5 rounded-lg hover:bg-white/10 transition-all opacity-60 hover:opacity-100"
-              title="Editor Tema"
-            >
-              <Palette size={16} />
-            </button>
-            <button 
-              onClick={() => {
-                setShowAbout(true);
-                setSidebarOpen(false);
-              }}
-              className="p-1.5 rounded-lg hover:bg-white/10 transition-all opacity-60 hover:opacity-100"
-              title="Tentang Aplikasi"
-            >
-              <Info size={16} />
-            </button>
+          <div className="px-3 pb-12 pt-3 flex flex-col gap-2">
+            <div className="flex items-center justify-between gap-1">
+              <button 
+                onClick={() => {
+                  setShowThemeEditor(true);
+                  setSidebarOpen(false);
+                }}
+                className="flex-1 flex items-center justify-center p-2 rounded-lg hover:bg-white/10 transition-all opacity-60 hover:opacity-100"
+                title="Editor Tema"
+              >
+                <Palette size={16} />
+              </button>
+              <button 
+                onClick={() => {
+                  setShowAbout(true);
+                  setSidebarOpen(false);
+                }}
+                className="flex-1 flex items-center justify-center p-2 rounded-lg hover:bg-white/10 transition-all opacity-60 hover:opacity-100"
+                title="Tentang Aplikasi"
+              >
+                <Info size={16} />
+              </button>
+            </div>
             <button 
               onClick={() => {
                 setShowLogoutConfirm(true);
                 setSidebarOpen(false);
               }}
-              className="p-1.5 rounded-lg hover:bg-red-500/10 text-white hover:text-red-400 transition-all opacity-60 hover:opacity-100"
-              title="Keluar Sesi"
+              className="w-full py-2.5 bg-red-600 hover:bg-red-700 text-white rounded-xl transition-all flex items-center justify-center gap-2 shadow-lg shadow-red-600/20 group active:scale-[0.98]"
             >
-              <LogOut size={16} />
+              <LogOut size={14} />
+              <span className="text-[10px] font-black uppercase tracking-widest">Keluar</span>
             </button>
           </div>
-          <div className="h-12" />
+          <div className="h-6" />
         </div>
       </motion.aside>
 

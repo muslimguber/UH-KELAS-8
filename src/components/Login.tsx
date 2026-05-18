@@ -53,10 +53,12 @@ export const Login: React.FC<LoginProps> = ({ username, setUsername, userClass, 
               <input 
                 type="text" 
                 value={username}
-                onChange={(e) => setUsername(e.target.value.toUpperCase())}
+                onChange={(e) => setUsername(e.target.value)}
                 placeholder="Masukkan nama Anda" 
-                className="w-full px-6 py-4 rounded-xl text-center text-lg font-semibold border-2 transition-all outline-none" 
+                className="w-full px-6 py-4 rounded-xl text-center text-lg font-semibold border-2 transition-all outline-none uppercase" 
                 style={{ background: 'rgba(255,255,255,0.95)', borderColor: '#14b8a6', color: '#05332e' }}
+                autoComplete="off"
+                spellCheck="false"
                 required
               /> 
 
