@@ -754,21 +754,12 @@ export const FinalQuiz: React.FC<FinalQuizProps> = ({ username, userClass, title
   };
 
   const handleReturnHome = () => {
-    // Array link Shopee
-    const shopeeLinks = [
-      'https://s.shopee.co.id/1BIxY6hq34',
-      'https://s.shopee.co.id/3B42ZFRWkc'
-    ];
-    
-    // Pilih salah satu secara acak
-    const randomLink = shopeeLinks[Math.floor(Math.random() * shopeeLinks.length)];
-    
-    // Buka link eksternal di tab baru saat kembali
-    try {
-      window.open(randomLink, '_blank', 'noopener,noreferrer');
-    } catch (e) {
-      console.error("Gagal membuka link Shopee:", e);
-    }
+    // Clear persistence when returning home so next time it starts fresh
+    localStorage.removeItem('ipa_quiz_current_index');
+    localStorage.removeItem('ipa_quiz_answers');
+    localStorage.removeItem('ipa_quiz_ragu_answers');
+    localStorage.removeItem('ipa_quiz_shuffled_questions');
+    localStorage.removeItem('ipa_quiz_show_result');
     
     // Kembali ke home
     onComplete(calculateScore());

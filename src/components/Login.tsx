@@ -55,7 +55,7 @@ export const Login: React.FC<LoginProps> = ({ username, setUsername, userClass, 
                 value={username}
                 onChange={(e) => setUsername(e.target.value.toUpperCase())}
                 placeholder="Masukkan nama Anda" 
-                className="w-full px-6 py-4 rounded-full text-center text-lg font-semibold border-2 transition-all outline-none" 
+                className="w-full px-6 py-4 rounded-xl text-center text-lg font-semibold border-2 transition-all outline-none" 
                 style={{ background: 'rgba(255,255,255,0.95)', borderColor: '#14b8a6', color: '#05332e' }}
                 required
               /> 
@@ -64,7 +64,7 @@ export const Login: React.FC<LoginProps> = ({ username, setUsername, userClass, 
                 <select
                   value={userClass}
                   onChange={(e) => setUserClass(e.target.value)}
-                  className="w-full px-6 py-4 rounded-full text-center text-lg font-semibold border-2 transition-all outline-none appearance-none cursor-pointer"
+                  className="w-full px-6 py-4 rounded-xl text-center text-lg font-semibold border-2 transition-all outline-none appearance-none cursor-pointer"
                   style={{ background: 'rgba(255,255,255,0.95)', borderColor: '#14b8a6', color: '#05332e' }}
                   required
                 >
@@ -77,7 +77,7 @@ export const Login: React.FC<LoginProps> = ({ username, setUsername, userClass, 
 
               <button 
                 type="submit" 
-                className="btn-garden pulse-glow inline-flex items-center justify-center gap-3 px-10 py-5 rounded-full text-xl font-bold tracking-wide mt-2" 
+                className="btn-garden pulse-glow inline-flex items-center justify-center gap-3 px-10 py-5 rounded-xl text-xl font-bold tracking-wide mt-2" 
                 style={{ background: 'linear-gradient(135deg, #22c55e, #16a34a)', color: '#fff', border: 'none', cursor: 'pointer' }}
               > 
                 <span>MASUK</span> 
